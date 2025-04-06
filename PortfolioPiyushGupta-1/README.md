@@ -21,12 +21,6 @@ A modern, responsive portfolio website showcasing my projects and skills. Built 
 - Social media integration
 
 
-## 🔄 Making Changes
-To update the deployed version:
-1. Make changes locally and test
-2. Commit and push to GitHub
-3. Render will automatically rebuild and deploy
-
 ## 📞 Contact
 - LinkedIn: [Piyush Gupta](https://www.linkedin.com/in/piyush-gupta-3b6751256/)
 - GitHub: [@PiyushGupta6688](https://github.com/PiyushGupta6688)
