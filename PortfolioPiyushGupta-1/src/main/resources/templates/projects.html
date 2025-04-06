@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: html">
+<head>
+    <title>Projects - Piyush Gupta</title>
+</head>
+<body>
+    <div th:fragment="content">
+        <section class="projects-section py-5">
+            <div class="container">
+                <h2 class="text-center mb-5" data-aos="fade-up">My Projects</h2>
+                
+                <!-- Booklicious -->
+                <div class="row mb-5" data-aos="fade-up">
+                    <div class="col-md-6">
+                     <!--    <img th : src="/images/booklicious.png" class="img-fluid rounded" alt="Booklicious"> -->
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Booklicious</h3>
+                        <p class="lead">Spring MVC E-commerce Book Store</p>
+                        <p>
+                            A full-featured e-commerce platform for books with an admin portal to manage books, 
+                            orders, and users. Built with Spring MVC, MySQL, and Bootstrap.
+                        </p>
+                        <div class="tech-stack mb-3">
+                            <span class="badge bg-primary me-2">Spring MVC</span>
+                            <span class="badge bg-primary me-2">MySQL</span>
+                            <span class="badge bg-primary me-2">Bootstrap</span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-primary">View Project</a>
+                            <a th:href="https://github.com/PiyushGupta6688/Booklicious_Web_Application" class="btn btn-outline-light" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- InfoMate -->
+                <div class="row mb-5" data-aos="fade-up">
+                    <div class="col-md-6 order-md-2">
+                       <!--  <img src="/images/infomate.png" class="img-fluid rounded" alt="InfoMate"> -->
+                    </div>
+                    <div class="col-md-6 order-md-1">
+                        <h3>InfoMate</h3>
+                        <p class="lead">AI Chatbot with Spring Boot</p>
+                        <p>
+                            An intelligent chatbot built with Spring Boot and LangChain4J, capable of 
+                            understanding and responding to user queries in natural language.
+                        </p>
+                        <div class="tech-stack mb-3">
+                            <span class="badge bg-primary me-2">Spring Boot</span>
+                            <span class="badge bg-primary me-2">LangChain4J</span>
+                            <span class="badge bg-primary me-2">AI Integration</span>
+                            <span class="badge bg-primary me-2">PostgreSQL</span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-primary">View Project</a>
+                            <a href="#" class="btn btn-outline-light">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCP System -->
+                <div class="row mb-5" data-aos="fade-up">
+                    <div class="col-md-6">
+                        <img src="/images/mcp-system.png" class="img-fluid rounded" alt="MCP System">
+                    </div>
+                    <div class="col-md-6">
+                        <h3>MCP System</h3>
+                        <p class="lead">Dashboard for Government of Rajasthan</p>
+                        <p>
+                            A comprehensive dashboard system for managing orders, wallet transactions, 
+                            and partner information. Built with Spring Boot and modern frontend technologies.
+                        </p>
+                        <div class="tech-stack mb-3">
+                            <span class="badge bg-primary me-2">Spring Boot</span>
+                            <span class="badge bg-primary me-2">React</span>
+                            <span class="badge bg-primary me-2">MySQL</span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-primary">View Project</a>
+                            <a href="#" class="btn btn-outline-light">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html> 

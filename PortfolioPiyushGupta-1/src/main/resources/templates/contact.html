@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: html">
+<head>
+    <title>Contact - Piyush Gupta</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div th:fragment="content">
+        <section class="contact-section py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h2 class="mb-4">Get in Touch</h2>
+                        <p class="lead mb-4">
+                            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+                        </p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope me-2"></i> piyushgupta249@gmail.com</p>
+                            <p><i class="fas fa-phone me-2"></i> +91-7683053452</p>
+                            <p><i class="fas fa-map-marker-alt me-2"></i> Uttar Pradesh, India</p>
+                        </div>
+                        <div class="social-links mt-4">
+                            <a href="https://github.com/PiyushGupta6688" class="text-light me-3">
+                                <i class="fab fa-github fa-2x"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/piyush-gupta-3b6751256/" class="text-light me-3">
+                                <i class="fab fa-linkedin fa-2x"></i>
+                            </a>
+                            <a href="https://leetcode.com/u/piyush_1704/" class="text-light">
+                                <i class="fas fa-code fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="contact-form">
+                            <h3 class="mb-4">Send me a Message</h3>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" class="form-control" id="subject" name="subject" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                <div id="error-message" class="alert alert-danger d-none"></div>
+                                <div id="success-message" class="alert alert-success d-none">Message sent successfully!</div>
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#contactForm').submit(function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    name: $('#name').val(),
+                    email: $('#email').val(),
+                    subject: $('#subject').val(),
+                    message: $('#message').val()
+                };
+
+                $.ajax({
+                    url: '/api/contact',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
+                    success: function(response) {
+                        $('#error-message').addClass('d-none');
+                        $('#success-message').removeClass('d-none');
+                        $('#contactForm')[0].reset();
+                    },
+                    error: function(xhr) {
+                        $('#success-message').addClass('d-none');
+                        $('#error-message').removeClass('d-none');
+                        $('#error-message').text(xhr.responseJSON?.message || 'An error occurred while sending the message.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

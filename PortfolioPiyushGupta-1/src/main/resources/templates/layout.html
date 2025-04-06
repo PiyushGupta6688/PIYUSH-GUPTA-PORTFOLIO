@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">Portfolio - Piyush Gupta</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link th:href="@{/static/css/style.css}" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/" data-aos="fade-right">Piyush Gupta</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav" data-aos="fade-left">
+                    <li class="nav-item">
+                        <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'active' : ''}" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI() == '/about' ? 'active' : ''}" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI() == '/projects' ? 'active' : ''}" href="/projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI() == '/contact' ? 'active' : ''}" href="/contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main>
+        <div th:replace="${content}">
+            <!-- Content will be replaced here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer py-4 bg-dark text-white text-center">
+        <div class="container">
+            <div class="social-links mb-3" data-aos="fade-up">
+                <a href="https://github.com/PiyushGupta6688" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/piyush-gupta-3b6751256/" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://leetcode.com/u/piyush_1704/" target="_blank" class="social-link">
+                    <i class="fas fa-code"></i>
+                </a>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+                © 2024 Piyush Gupta. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .footer .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .footer .social-link {
+            color: #888;
+            font-size: 1.5rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0, 255, 225, 0.1);
+            border: 1px solid rgba(0, 255, 225, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .footer .social-link:hover {
+            color: #00ffe1;
+            background: rgba(0, 255, 225, 0.2);
+            transform: translateY(-3px) rotate(8deg);
+            box-shadow: 0 0 20px rgba(0, 255, 225, 0.3);
+        }
+    </style>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script th:src="@{/static/js/main.js}"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
