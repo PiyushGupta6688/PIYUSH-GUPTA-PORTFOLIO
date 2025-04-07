@@ -1,12 +1,11 @@
-# Use Java 17 base image
+# Stage 1: Build the app
+FROM maven:3.8.6-openjdk-17 AS build
+WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
+
+# Stage 2: Run the app
 FROM openjdk:17-jdk-slim
-
-# Add a volume (optional)
-VOLUME /tmp
-
-# Copy the jar file from target folder
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-
-# Run the app
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
